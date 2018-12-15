@@ -1,6 +1,8 @@
+from collections import Counter
 file = "./input.txt"
 stack = []
 num = []
+freq = []
 operation = ''
 with open(file) as fileHandler:
     fileRead = fileHandler.read()
@@ -14,10 +16,15 @@ with open(file) as fileHandler:
               if(operation == '+'): summer += suming
               if(operation == '-'): summer -= suming
               num = []
+              freq.append(summer)
          elif(c == '+'): operation = '+'
          elif(c == '-'): operation = '-'
          elif( int(c) >= 0 and int(c) <= 9 ):
              num.append(c)
-print(summer)
+occurence = []
+occ = []
+test = 0
+a = Counter(freq)
+print(a.most_common(8))
 
 
